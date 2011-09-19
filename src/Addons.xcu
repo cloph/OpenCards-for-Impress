@@ -1,0 +1,434 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<oor:component-data xmlns:oor="http://openoffice.org/2001/registry" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                    oor:name="Addons" oor:package="org.openoffice.Office">
+    <node oor:name="AddonUI">
+        <node oor:name="OfficeMenuBar">
+            <node oor:name="info.opencards" oor:op="replace">
+                <prop oor:name="Title" oor:type="xs:string">
+                    <value xml:lang="en">OpenCards</value>
+                    <value xml:lang="de">OpenCards</value>
+                    <value xml:lang="fr">OpenCards</value>
+                    <value xml:lang="es">OpenCards</value>
+                    <value xml:lang="it">OpenCards</value>
+                    <value xml:lang="el">OpenCards</value>
+                    <value xml:lang="pt">OpenCards</value>
+                    <value xml:lang="bg">OpenCards</value>
+                </prop>
+                <prop oor:name="Target" oor:type="xs:string">
+                    <value>_self</value>
+                </prop>
+                <prop oor:name="ImageIdentifier" oor:type="xs:string">
+                    <value/>
+                </prop>
+                <node oor:name="Submenu">
+                    <node oor:name="m1" oor:op="replace">
+                        <prop oor:name="URL" oor:type="xs:string">
+                            <value>info.opencards:ocLastMinLearning</value>
+                        </prop>
+                        <prop oor:name="ImageIdentifier" oor:type="xs:string">
+                            <value/>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                            <value>_self</value>
+                        </prop>
+                        <prop oor:name="Context" oor:type="xs:string">
+                            <value>com.sun.star.presentation.PresentationDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                            <value xml:lang="en">Last-Minute Learning</value>
+                            <value xml:lang="de">Last-Minute Lernen</value>
+                            <value xml:lang="fr">Dernière minute</value>
+                            <value xml:lang="es">Aprendizaje de Corto Plazo</value>
+                            <value xml:lang="it">Apprendimento LastMinute</value>
+                            <value xml:lang="el">Αποστήθιση Τελευταίας Στιγμής</value>
+                            <value xml:lang="pt">Aprendizado de Última Hora</value>
+                            <value xml:lang="bg">Учене в последната минута</value>
+                        </prop>
+                    </node>
+                    <node oor:name="m2" oor:op="replace">
+                        <prop oor:name="URL" oor:type="xs:string">
+                            <value>info.opencards:ltmLearning</value>
+                        </prop>
+                        <prop oor:name="ImageIdentifier" oor:type="xs:string">
+                            <value/>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                            <value>_self</value>
+                        </prop>
+                        <prop oor:name="Context" oor:type="xs:string">
+                            <value>com.sun.star.presentation.PresentationDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                            <value xml:lang="en">LongTerm Learning</value>
+                            <value xml:lang="de">Langzeit-Lernen</value>
+                            <value xml:lang="fr">Long terme</value>
+                            <value xml:lang="es">Aprendizaje de Largo Plazo</value>
+                            <value xml:lang="it">Apprendimento Lungo Termine</value>
+                            <value xml:lang="el">Μακροπρόθεσμη Αποστήθιση</value>
+                            <value xml:lang="pt">Aprendizado de Longo Prazo</value>
+                            <value xml:lang="bg">Дълготрайно запомняне</value>
+                        </prop>
+                    </node>
+
+                    <node oor:name="m3" oor:op="replace">
+                        <prop oor:name="URL" oor:type="xs:string">
+                            <value>private:separator</value>
+                        </prop>
+                    </node>
+                    <node oor:name="m5" oor:op="replace">
+                        <prop oor:name="URL" oor:type="xs:string">
+                            <value>info.opencards:ocPrefs</value>
+                        </prop>
+                        <prop oor:name="ImageIdentifier" oor:type="xs:string">
+                            <value/>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                            <value>_self</value>
+                        </prop>
+                        <prop oor:name="Context" oor:type="xs:string">
+                            <value>com.sun.star.presentation.PresentationDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                            <value xml:lang="en">Preferences</value>
+                            <value xml:lang="de">Einstellungen</value>
+                            <value xml:lang="fr">Préferences</value>
+                            <value xml:lang="es">Preferencias</value>
+                            <value xml:lang="it">Preferenze</value>
+                            <value xml:lang="el">Προτιμήσεις</value>
+                            <value xml:lang="pt">Preferências</value>
+                            <value xml:lang="bg">Предпочитания</value>
+                        </prop>
+                    </node>
+                    <node oor:name="m6" oor:op="replace">
+                        <prop oor:name="URL" oor:type="xs:string">
+                            <value>info.opencards:ocAdvan</value>
+                        </prop>
+                        <prop oor:name="ImageIdentifier" oor:type="xs:string">
+                            <value/>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                            <value>_self</value>
+                        </prop>
+                        <prop oor:name="Context" oor:type="xs:string">
+                            <value>com.sun.star.presentation.PresentationDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                            <value xml:lang="en">Advanced</value>
+                            <value xml:lang="de">Fortgeschritten</value>
+                            <value xml:lang="fr">Avancé</value>
+                            <value xml:lang="es">Avanzado</value>
+                            <value xml:lang="it">Avanzate</value>
+                            <value xml:lang="el">Προχωρημένα</value>
+                            <value xml:lang="pt">Avançado</value>
+                            <value xml:lang="bg">Разширени</value>
+                        </prop>
+                        <node oor:name="Submenu">
+                            <node oor:name="n1" oor:op="replace">
+                                <prop oor:name="URL" oor:type="xs:string">
+                                    <value>info.opencards:impCards</value>
+                                </prop>
+                                <prop oor:name="ImageIdentifier" oor:type="xs:string">
+                                    <value/>
+                                </prop>
+                                <prop oor:name="Target" oor:type="xs:string">
+                                    <value>_self</value>
+                                </prop>
+                                <prop oor:name="Context" oor:type="xs:string">
+                                    <value>com.sun.star.presentation.PresentationDocument</value>
+                                </prop>
+                                <prop oor:name="Title" oor:type="xs:string">
+                                    <value xml:lang="en">Import Flashcards</value>
+                                    <value xml:lang="de">Karteikarten importieren</value>
+                                    <value xml:lang="fr">Importer des cartes</value>
+                                    <value xml:lang="es">Importar tarjetas</value>
+                                    <value xml:lang="it">Importa Flashcards</value>
+                                    <value xml:lang="el">Εισαγωγή Σειράς Καρτών</value>
+                                    <value xml:lang="pt">Importar Flashcards</value>
+                                    <value xml:lang="bg">Импорт на флашкарти</value>
+                                </prop>
+                            </node>
+                            <node oor:name="n2" oor:op="replace">
+                                <prop oor:name="URL" oor:type="xs:string">
+                                    <value>info.opencards:prepPrint</value>
+                                </prop>
+                                <prop oor:name="ImageIdentifier" oor:type="xs:string">
+                                    <value/>
+                                </prop>
+                                <prop oor:name="Target" oor:type="xs:string">
+                                    <value>_self</value>
+                                </prop>
+                                <prop oor:name="Context" oor:type="xs:string">
+                                    <value>com.sun.star.presentation.PresentationDocument</value>
+                                </prop>
+                                <prop oor:name="Title" oor:type="xs:string">
+                                    <value xml:lang="en">Flashcard Printing</value>
+                                    <value xml:lang="de">Karteikarten drucken</value>
+                                    <value xml:lang="fr">Imprimer les cartes</value>
+                                    <value xml:lang="es">Imprimiendo tarjetas</value>
+                                    <value xml:lang="it">Stampa Flashcard</value>
+                                    <value xml:lang="el">Εκτύπωση Σειράς Καρτών</value>
+                                    <value xml:lang="pt">Impressão de Flashcard</value>
+                                    <value xml:lang="bg">Отпечатване на флашкарти</value>
+                                </prop>
+                            </node>
+                            <node oor:name="n3" oor:op="replace">
+                                <prop oor:name="URL" oor:type="xs:string">
+                                    <value>info.opencards:ocRemoveOCProps</value>
+                                </prop>
+                                <prop oor:name="ImageIdentifier" oor:type="xs:string">
+                                    <value/>
+                                </prop>
+                                <prop oor:name="Target" oor:type="xs:string">
+                                    <value>_self</value>
+                                </prop>
+                                <prop oor:name="Context" oor:type="xs:string">
+                                    <value>com.sun.star.presentation.PresentationDocument</value>
+                                </prop>
+                                <prop oor:name="Title" oor:type="xs:string">
+                                    <value xml:lang="en">Remove OpenCards-data</value>
+                                    <value xml:lang="de">OpenCards-Daten entfernen</value>
+                                    <value xml:lang="fr">Supprimer les données OpenCards</value>
+                                    <value xml:lang="es">Borrar información de tarjetas</value>
+                                    <value xml:lang="it">Rimuovi dati OpenCards</value>
+                                    <value xml:lang="el">Αφαίρεση δεδομένων OpenCards</value>
+                                    <value xml:lang="pt">Remover dados do OpenCards</value>
+                                    <value xml:lang="bg">Премахване на OpenCards-данни</value>
+                                </prop>
+                            </node>
+                        </node>
+                    </node>
+                    <node oor:name="m7" oor:op="replace">
+                        <prop oor:name="URL" oor:type="xs:string">
+                            <value>private:separator</value>
+                        </prop>
+                    </node>
+                    <node oor:name="m8" oor:op="replace">
+                        <prop oor:name="URL" oor:type="xs:string">
+                            <value>info.opencards:ocHelp</value>
+                        </prop>
+                        <prop oor:name="ImageIdentifier" oor:type="xs:string">
+                            <value/>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                            <value>_self</value>
+                        </prop>
+                        <prop oor:name="Context" oor:type="xs:string">
+                            <value>com.sun.star.presentation.PresentationDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                            <value xml:lang="en">Help</value>
+                            <value xml:lang="de">Hilfe</value>
+                            <value xml:lang="fr">Aide</value>
+                            <value xml:lang="es">Ayuda</value>
+                            <value xml:lang="it">Aiuto</value>
+                            <value xml:lang="el">Βοήθεια</value>
+                            <value xml:lang="pt">Ajuda</value>
+                            <value xml:lang="bg">Помощ</value>
+                        </prop>
+                    </node>
+                    <node oor:name="m9" oor:op="replace">
+                        <prop oor:name="URL" oor:type="xs:string">
+                            <value>info.opencards:cardRepos</value>
+                        </prop>
+                        <prop oor:name="ImageIdentifier" oor:type="xs:string">
+                            <value/>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                            <value>_self</value>
+                        </prop>
+                        <prop oor:name="Context" oor:type="xs:string">
+                            <value>com.sun.star.presentation.PresentationDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                            <value xml:lang="en">Get new flashcards</value>
+                            <value xml:lang="de">Neue Karteikarten bekommen</value>
+                            <value xml:lang="fr">Obtenir de nouvelles cartes</value>
+                            <value xml:lang="es">Obtener nuevas tarjetas</value>
+                            <value xml:lang="it">Ottieni nuove Carte flashcards</value>
+                            <value xml:lang="el">Λήψη νέων καρτών</value>
+                            <value xml:lang="pt">Baixar novos flashcards</value>
+                            <value xml:lang="bg">Вземете нови флашкарти</value>
+                        </prop>
+                    </node>
+                    <node oor:name="n1" oor:op="replace">
+                        <prop oor:name="URL" oor:type="xs:string">
+                            <value>private:separator</value>
+                        </prop>
+                    </node>
+                    <node oor:name="n2" oor:op="replace">
+                        <prop oor:name="URL" oor:type="xs:string">
+                            <value>info.opencards:ocAbout</value>
+                        </prop>
+                        <prop oor:name="ImageIdentifier" oor:type="xs:string">
+                            <value/>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                            <value>_self</value>
+                        </prop>
+                        <prop oor:name="Context" oor:type="xs:string">
+                            <value>com.sun.star.presentation.PresentationDocument</value>
+                        </prop>
+                        <prop oor:name="Title" oor:type="xs:string">
+                            <value xml:lang="en">About</value>
+                            <value xml:lang="de">Über</value>
+                            <value xml:lang="fr">A propos</value>
+                            <value xml:lang="es">Sobre OpenCards</value>
+                            <value xml:lang="it">A proposito</value>
+                            <value xml:lang="el">Σχετικά</value>
+                            <value xml:lang="pt">Sobre</value>
+                            <value xml:lang="bg">Относно</value>
+                        </prop>
+                    </node>
+                </node>
+            </node>
+        </node>
+        <node oor:name="OfficeToolBar">
+            <node oor:name="info.opencards.toolbar" oor:op="replace">
+                <node oor:name="m1" oor:op="replace">
+                    <prop oor:name="URL" oor:type="xs:string">
+                        <value>info.opencards:ocLastMinLearning</value>
+                    </prop>
+                    <prop oor:name="ImageIdentifier" oor:type="xs:string">
+                        <value/>
+                    </prop>
+                    <prop oor:name="Target" oor:type="xs:string">
+                        <value>_self</value>
+                    </prop>
+                    <prop oor:name="Context" oor:type="xs:string">
+                        <value>com.sun.star.presentation.PresentationDocument</value>
+                    </prop>
+                    <prop oor:name="Title" oor:type="xs:string">
+                        <value xml:lang="en">Last-Minute Learning</value>
+                        <value xml:lang="de">Last-Minute Lernen</value>
+                        <value xml:lang="fr">Dernière minute</value>
+                        <value xml:lang="es">Aprendizaje de Corto Plazo</value>
+                        <value xml:lang="it">Apprendimento LastMinute</value>
+                        <value xml:lang="el">Αποστήθιση Τελευταίας Στιγμής</value>
+                        <value xml:lang="pt">Aprendizado de Última Hora</value>
+                        <value xml:lang="bg">=Учене в последната минута</value>
+                    </prop>
+                </node>
+                <node oor:name="m2" oor:op="replace">
+                    <prop oor:name="URL" oor:type="xs:string">
+                        <value>info.opencards:ltmLearning</value>
+                    </prop>
+                    <prop oor:name="ImageIdentifier" oor:type="xs:string">
+                        <value/>
+                    </prop>
+                    <prop oor:name="Target" oor:type="xs:string">
+                        <value>_self</value>
+                    </prop>
+                    <prop oor:name="Context" oor:type="xs:string">
+                        <value>com.sun.star.presentation.PresentationDocument</value>
+                    </prop>
+                    <prop oor:name="Title" oor:type="xs:string">
+                        <value xml:lang="en">Long-Term Learning</value>
+                        <value xml:lang="de">Langzeit-Lernen</value>
+                        <value xml:lang="fr">Long terme</value>
+                        <value xml:lang="es">Aprendizaje de Largo Plazo</value>
+                        <value xml:lang="it">Apprendimento Lungo Termine</value>
+                        <value xml:lang="el">Μακροπρόθεσμη Αποστήθιση</value>
+                        <value xml:lang="pt">Aprendizado de Longo Prazo</value>
+                        <value xml:lang="bg">Дълготрайно запомняне</value>
+                    </prop>
+                </node>
+                <node oor:name="m3" oor:op="replace">
+                    <prop oor:name="URL" oor:type="xs:string">
+                        <value>private:separator</value>
+                    </prop>
+                </node>
+                <node oor:name="m4" oor:op="replace">
+                    <prop oor:name="URL" oor:type="xs:string">
+                        <value>info.opencards:tagQuestionShapes</value>
+                    </prop>
+                    <prop oor:name="ImageIdentifier" oor:type="xs:string">
+                        <value/>
+                    </prop>
+                    <prop oor:name="Target" oor:type="xs:string">
+                        <value>_self</value>
+                    </prop>
+                    <prop oor:name="Context" oor:type="xs:string">
+                        <value>com.sun.star.presentation.PresentationDocument</value>
+                    </prop>
+                    <prop oor:name="Title" oor:type="xs:string">
+                        <value xml:lang="en">Tag selected shapes as question</value>
+                        <value xml:lang="de">Markiere selektierte Objekte als Frage</value>
+                    </prop>
+                </node>
+                <node oor:name="m5" oor:op="replace">
+                    <prop oor:name="URL" oor:type="xs:string">
+                        <value>info.opencards:selectQuestionShapes</value>
+                    </prop>
+                    <prop oor:name="ImageIdentifier" oor:type="xs:string">
+                        <value/>
+                    </prop>
+                    <prop oor:name="Target" oor:type="xs:string">
+                        <value>_self</value>
+                    </prop>
+                    <prop oor:name="Context" oor:type="xs:string">
+                        <value>com.sun.star.presentation.PresentationDocument</value>
+                    </prop>
+                    <prop oor:name="Title" oor:type="xs:string">
+                        <value xml:lang="en">Select question shapes</value>
+                        <value xml:lang="de">Selektiere Frageobjekte</value>
+                    </prop>
+                </node>
+            </node>
+        </node>
+        <node oor:name="Images">
+            <node oor:name="info.opencards.ocmain.images" oor:op="replace">
+                <prop oor:name="URL" oor:type="xs:string">
+                    <value>info.opencards:ltmLearning</value>
+                </prop>
+                <node oor:name="UserDefinedImages">
+                    <prop oor:name="ImageBigURL" oor:type="xs:string">
+                        <value>%origin%/resources/icons/globset_learning.png</value>
+                    </prop>
+                    <prop oor:name="ImageSmallURL" oor:type="xs:string">
+                        <value>%origin%/resources/icons/globset_learning_small.png</value>
+                    </prop>
+                </node>
+            </node>
+            <node oor:name="info.opencards.oclastminlearning.images" oor:op="replace">
+                <prop oor:name="URL" oor:type="xs:string">
+                    <value>info.opencards:ocLastMinLearning</value>
+                </prop>
+                <node oor:name="UserDefinedImages">
+                    <prop oor:name="ImageSmallURL">
+                        <value>%origin%/resources/icons/5vorUhr_small.png</value>
+                    </prop>
+                    <prop oor:name="ImageBigURL">
+                        <value>%origin%/resources/icons/5vorUhr.png</value>
+                    </prop>
+                </node>
+            </node>
+            <node oor:name="info.opencards.tagQuestionShapes.images" oor:op="replace">
+                <prop oor:name="URL" oor:type="xs:string">
+                    <value>info.opencards:tagQuestionShapes</value>
+                </prop>
+                <node oor:name="UserDefinedImages">
+                    <prop oor:name="ImageSmallURL">
+                        <value>%origin%/resources/icons/tagSelectionAsQuestion.png</value>
+                    </prop>
+                    <prop oor:name="ImageBigURL">
+                        <value>%origin%/resources/icons/tagSelectionAsQuestion.png</value>
+                    </prop>
+                </node>
+            </node>
+            <node oor:name="info.opencards.selectQuestionShapes.images" oor:op="replace">
+                <prop oor:name="URL" oor:type="xs:string">
+                    <value>info.opencards:selectQuestionShapes</value>
+                </prop>
+                <node oor:name="UserDefinedImages">
+                    <prop oor:name="ImageSmallURL">
+                        <value>%origin%/resources/icons/selectQuestionShapes.png</value>
+                    </prop>
+                    <prop oor:name="ImageBigURL">
+                        <value>%origin%/resources/icons/selectQuestionShapes.png</value>
+                    </prop>
+                </node>
+            </node>
+        </node>
+    </node>
+</oor:component-data>

@@ -1,0 +1,4 @@
+A free flashcard learning extension for Impress
+                                                 
+Published under BSD-style license   
+Copyright (c) 2008 Holger Brandl and contributors

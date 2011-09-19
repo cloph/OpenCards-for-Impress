@@ -1,0 +1,27 @@
+<description xmlns="http://openoffice.org/extensions/update/2006"
+             xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <version value="1.5.1"/>
+    <identifier value="info.opencards.OpenCards.oxt"/>
+
+    <display-name>
+        <name lang="en-GB">OpenCards</name>
+    </display-name>
+
+
+    <update-download>
+        <src xlink:href="http://www.open-cards.net/update/OpenCards-1.5.1.oxt"/>
+    </update-download>
+
+    <publisher>
+        <name xlink:href="http://www.opencards.info" lang="en-GB">Holger Brandl</name>
+    </publisher>
+
+    <release-notes>
+        <src xlink:href="http://opencards.blogspot.com/2009/05/opencards-15-released.html" lang="en-GB"/>
+    </release-notes>
+
+    <!--<update-website>-->
+    <!--<src xlink:href="http://extensions.openoffice.org/extension/myextension.html"/>-->
+    <!--</update-website>-->
+</description>

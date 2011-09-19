@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0">
+  <info>
+    <title>OpenCards Manual</title>
+    <subtitle>A free flashcard learning extension for OpenOffice Impress</subtitle>
+    <author><personname>The OpenCards project and contributors</personname></author>
+  </info>
+  <!--
+  <mediaobject>
+    <imageobject><imagedata fileref="figures/oclogo.png" align="center"/></imageobject>
+  </mediaobject>-->
+  <para><code>This document becomes extended on request only, and is therefore based on your and
+      only your needs. So if you consider a part of OpenCards to be not or insufficiently
+      documented, you're welcome to drop us note with your questions, remarks and ideas in our <link
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        xlink:href="http://sourceforge.net/forum/?group_id=198974">support forums</link> at
+      sourceforge. </code></para>
+  <sect1>
+    <title>Introduction</title>
+    <para>OpenOffice Impress allows to compile, communicate and explain complex facts and figures
+      via visually attractive presentations. However, it lacks of means to keep all these these
+      greatly visualized and condensed information in mind. OpenCards attempts to fill this gap by
+      attaching a memorization layer to OpenOffice. </para>
+    <para>OpenCards is a BSD-style licensed flashcard learning extension for OpenOffice Impress. The
+      basic idea of OpenCards is to use slide-titles as flashcard fronts and the slide contents as
+      their backs (cf. figure 1). Based on state-of-the-art memorization and scheduling algorithms
+      OpenCards will help you to learn any set of flashcards. </para>
+    <para>There are many flashcard learning applications available. Some of them implement fancy
+      learning techniques, some of them look very polished, but almost all of them lack of one
+      essential feature: Flexible, intuitive flashcard creation. In many cases, competing products
+      support simple text cards only. Additionally, we're not aware of any competing product that
+      builds on a standardized document format. With OpenCards we've tried to overcome these
+      limitations by just plugging well-established learning and memorization methods into one of
+      the best free office applications available: OpenOffice Impress. </para>
+    <para>Being an extension for OpenOffice Impress, OpenCards gives you any freedom you enjoy when
+      creating OpenOffice Impress-slides. OpenCards just adds all functionality that turn any
+      existing Impress/Powerpoint presentation on-the-fly into a set of flashcards. Furthermore, it
+      comes along with tools necessary to manage large amounts of presentation-files. </para>
+    <figure>
+      <title>The basic idea of OpenCards</title>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="./figures/opencards-idea.png" align="center" scale="60"/>
+        </imageobject>
+      </mediaobject>
+    </figure>
+    <para>Education is the key-factor in the global struggle for economic and social success.
+      OpenCards provides a flashcard learning extension for OpenOffice Impress, that makes Impress a
+      unique solution for education. </para>
+  </sect1>
+  <sect1>
+    <title>Overview</title>
+    <para>OpenCards implements two different learning models. A box-based short-term learning
+      procedure, also known as Leitner-learning1, and a more sophisticated long-term memorization
+      model based on an improved version of the SM-2 algorithm2. Whereas the former is designed for
+      to quickly cram large amounts of facts (e.g. in preparation to an examination), the latter
+      (cf. Figure 2) predicts the user's memorization performance in order to maximize knowledge
+      retention. Thereby it minimizes the time investment necessary to memorize tens, hundreds, or
+      even thousands of facts. </para>
+    <para>The learning states of the slides within an Impress-presentation are stored directly
+      within the ODF meta-data model. This we consider to be a key feature of OpenCards, because it
+      allows to learn a card-set in changing/shifting environments involving different computers or
+      operating systems. </para>
+    <figure>
+      <title>The long-term memorization model of OpenCards</title>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="./figures/learning-curve.png" scale="80" align="center"/>
+        </imageobject>
+      </mediaobject>
+    </figure>
+    <para>During learning OpenCards presents scheduled slides to evaluate the users retention level.
+      First only the card-question is being presented. Normally this will be the slide title, but
+      OpenCards supports also other questioning modes. After the user has tried to recall the fact,
+      she can give a feedback about her retention level (cf. Figure 3). Based on the reported
+      retrieval-strength OpenCards will update the learning model of the current slide and
+      reschedule it in an optimal manner. </para>
+    <para>
+      <figure>
+        <title>OpenCards in action during a learning session</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="./figures/oc-in-action.png" align="center" scale="40"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+    </para>
+  </sect1>
+  <sect1>
+    <title>Flashcard configuration</title>
+    <para>Flashcards can be configured in various ways.</para>
+    <para><inlinemediaobject><imageobject><imagedata fileref="figures/config-while-learning.png"
+            scale="40"/></imageobject></inlinemediaobject>
+    </para>
+  </sect1>
+  <sect1>
+    <title>LastMinute memorization</title>
+    <para>test test</para>
+    <sect2>
+      <title>LastMinute session preparation</title>
+      <para>test test</para>
+    </sect2>
+    <sect2>
+      <title>LastMinute session learning</title>
+      <para>During last minute learning you're given only two possible answers. If you know a
+        flashcard you click <emphasis role="italic">Perfectly</emphasis>, otherwise you click on
+          <emphasis role="italic">Not at all.</emphasis> In the former case the current card would
+        be moved to the next higher box. In the latter case the card would be either moved to the
+        first card box or to the next lower box (depending on how you've configured OpenCards. Cf.
+        sectio</para>
+      <para>During last-minute learning OpenCards shows a dynamically updated card box system. The
+        current flashcard currently being processed is is indicated with red color. New so far
+        unlearnt items are depectied as blue items. If you consider the card box view to be too
+        distracting just try to resize the dialog window. If you've reached a certain small size the
+        box view will dissappear.</para>
+      <para><inlinemediaobject><imageobject><imagedata fileref="figures/lastmin-learndialog.png"
+              align="center" scale="70"/></imageobject></inlinemediaobject></para>
+    </sect2>
+  </sect1>
+  <sect1>
+    <title>LongTerm memorization</title>
+    <para>Beside its core learning model framework, OpenCards comes along with all necessary tools
+      to manage large amount of flashcard-presentations. </para>
+    <sect2>
+      <title>The LTM-Manager</title>
+      <para>The so called “Long-Term Memorization Manager” provides a tree based categorization
+        interface that also comprises different statistics about current schedule and learning
+        progress. Instead of opening all files of interest manually, the user just needs to select
+        the category he want to refresh, and OpenCards will automatically determine the slides
+        within this category scheduled for the current day. Subsequently, it will automatically
+        iterate over all these items by opening the necessary files, navigating to the scheduled
+        items and by evaluating your recall-ability as mentioned above. </para>
+      <para><inlinemediaobject><imageobject><imagedata fileref="figures/ltm-manager.png" scale="50"
+            /></imageobject></inlinemediaobject></para>
+      <sect3>
+        <title>Long term learning modes</title>
+        <para>Basically there are three different learning modes when using OpenCards to learn
+          things for a very long time<itemizedlist>
+            <listitem>
+              <para>Scheduled Learning: This mode is the <emphasis role="bold">default</emphasis>
+                mode and is used in alomst all cases. </para>
+              <para>It is started when the "Start Learning"-button has been pressed in the
+                LTM-Manager. Internally OpenCards will then collect all cards of the selected card
+                files (or all current files if no files is selected) scheduled until today. To make
+                sure that items are not forgotten if you've skipped your daily OpenCards quarted,
+                this will also include items that were scheduled to a past date. </para>
+              <para>All collected cards will be then presented in a file-wise manner: OpenCards
+                iterates over all files containing at least one scheduled item and presents this for
+                learinng/reviewing.</para>
+            </listitem>
+            <listitem>
+              <para>Refreshment: This mode becomes activated when the <keycap>Alt</keycap> is
+                pressed before the "Start Learning"-button is about to be pressed. OpenCards will
+                indicate the changed mode by altering the button label to "Start refreshing". When
+                using this leanring scheme OpenCards presents not only scheduled items of the
+                selected card files, but <emphasis role="italic">all</emphasis> items found in these
+                files. This gives you the possibility to refresh your knowledge in immediate
+                preparation to an exam. </para>
+              <para><inlinemediaobject><imageobject><imagedata
+                      fileref="figures/refresh-learning.png"/></imageobject></inlinemediaobject></para>
+              <para>If you score items with "well" or "perfectly" their internal state won't be
+                changed at all. If your recall ability was less than "well" these items will be
+                rescheduled accordingly.</para>
+            </listitem>
+            <listitem>
+              <para>Force New Cards: This mode becomes activated when the <keycap>Ctrl</keycap> is
+                pressed when the "Start Learning"-button is about to be pressed. OpenCards will
+                indicate the changed mode by altering the button label to "Start Learning (+New)".
+                Normally OpenCards restricts the number of new cards to be learnt according to your
+                setting in <emphasis role="italic">Preferences->LTM Learning</emphasis> (default =
+                30). But when using this scheme OpenCards will include all new itmes into the
+                learning session to be instantiated.</para>
+            </listitem>
+          </itemizedlist></para>
+      </sect3>
+    </sect2>
+    <sect2>
+      <title>LTM Learning</title>
+      <para>While iterating of the scheduled items you can either use your mouse to unhide complete
+        cards or to rate your recall abilities. However, OpenCards implements a keyboard scheme that
+        allows you to completly avoid the mouse while learning flashcards. This scheme is depicted
+        below.</para>
+      <para>
+        <inlinemediaobject><imageobject><imagedata fileref="figures/keylayout-ltm-show.png"
+              scale="70"/></imageobject>
+        </inlinemediaobject></para>
+      <para><inlinemediaobject><imageobject><imagedata fileref="figures/keylayout-ltm-score.png"
+              scale="70"/></imageobject></inlinemediaobject></para>
+    </sect2>
+  </sect1>
+  <sect1>
+    <title>Preferences</title>
+    <para>test tes </para>
+  </sect1>
+  <glossary/>
+  <appendix>
+    <info>
+      <title>Frequently asked questions</title>
+    </info>
+    <sect1>
+      <title>How to configure a single slide in a flashcard set?</title>
+      <para>You can do via the context menu of the slide in the slide pane as depicted in the
+        figure.</para>
+      <para>.<inlinemediaobject><imageobject><imagedata fileref="figures/oc-cxtmenu.png" scale="50"
+            /></imageobject></inlinemediaobject></para>
+    </sect1>
+  </appendix>
+  <appendix>
+    <title>License</title>
+    <para>Copyright 2007-2008 Holger Brandl and contributors of the OpenCards-projects. All Rights
+      Reserved. Use is subject to license terms. </para>
+    <para>Redistribution and use in source and binary forms, with or without modification, are
+      permitted provided that the following conditions are met: <orderedlist>
+        <listitem>
+          <para>Redistributions of source code must retain the above copyright notice, this list of
+            conditions and the following disclaimer.</para>
+        </listitem>
+        <listitem>
+          <para>Redistributions in binary form must reproduce the above copyright notice, this list
+            of conditions and the following disclaimer in the documentation and/or other materials
+            provided with the distribution. 3. 4. </para>
+        </listitem>
+        <listitem>
+          <para>Original authors' names are not deleted.</para>
+        </listitem>
+        <listitem>
+          <para>The authors' names are not used to endorse or promote products derived from this
+            software without specific prior written permission.</para>
+        </listitem>
+      </orderedlist></para>
+    <para>HOLGER BRANDL AND THE CONTRIBUTORS TO THIS WORK DISCLAIM ALL WARRANTIES WITH REGARD TO
+      THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT
+      SHALL HOLGER BRANDL NOR THE CONTRIBUTORS BE LIABLE FOR ANY SPECIAL, INDIRECT OR CONSEQUENTIAL
+      DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+      ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUTOF OR IN CONNECTION WITH
+      THE USE OR PERFORMANCE OF THIS SOFTWARE. </para>
+  </appendix>
+</article>
