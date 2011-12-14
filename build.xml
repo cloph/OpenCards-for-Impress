@@ -6,8 +6,8 @@
 	<property name="lib.dir" value="${basedir}/lib" />
 	<property name="dist.dir" value="${basedir}/dist" />
 
-	<property name="prj.name" value="OpenCards" />
-	<property name="version" value="1.5.1" />
+	<property name="prj.name" value="OpenCardsExtension" />
+	<property name="version" value="1.5.2" />
 	<property name="exeaffix" value="" />
 
 
@@ -15,21 +15,11 @@
 		<fileset dir="${lib.dir}">
 			<include name="*.jar" />
 		</fileset>
-		<fileset dir="${office.home}/Basis/program/classes">
+		<fileset dir="${office.home}/basis-link/program/classes">
 			<include name="officebean.jar" />
 			<include name="unoil.jar" />
 		</fileset>
 
-		<!-- windows/linux-->
-		<!--<fileset dir="${office.home}/URE/java/">-->
-		<!--<include name="juh.jar"/>-->
-		<!--<include name="jurt.jar"/>-->
-		<!--<include name="java_uno.jar"/>-->
-		<!--<include name="ridl.jar"/>-->
-		<!--<include name="unoloader.jar"/>-->
-		<!--</fileset>-->
-
-		<!-- mac os-->
 		<fileset dir="${office.home}/basis-link/ure-link/share/java/">
 			<include name="juh.jar" />
 			<include name="jurt.jar" />
@@ -38,14 +28,6 @@
 			<include name="unoloader.jar" />
 		</fileset>
 
-		<!-- uncomment this to restore OO 2.x build compatibility -->
-		<!--<fileset dir="${office.home}/program/classes/">-->
-		<!--<include name="juh.jar"/>-->
-		<!--<include name="jurt.jar"/>-->
-		<!--<include name="officebean.jar"/>-->
-		<!--<include name="ridl.jar"/>-->
-		<!--<include name="unoil.jar"/>-->
-		<!--</fileset>-->
 	</path>
 
 
@@ -63,7 +45,7 @@
 		<mkdir dir="${dist.dir}" />
 		<jar basedir="${classes.dir}" destfile="${dist.dir}/${prj.name}.jar">
 			<manifest>
-				<attribute name="Built-By" value="The ${prj.name} project. All rights reserverd, 2007" />
+				<attribute name="Built-By" value="The ${prj.name} project. All rights reserverd, 2011" />
 				<attribute name="RegistrationClassName" value="info.opencards.OpenCards" />
 				<attribute name="Main-Class" value="info.opencards.MockSupplier" />
 				<attribute name="Class-Path" value="jfreechart-1.0.6.jar jcommon-1.0.10.jar looks-2.1.4.jar xstream-1.3.jar xpp3_min-1.1.4c.jar" />
@@ -161,7 +143,7 @@
 
 	<target name="uno-deploy" description="Deploys UNO extension package" depends="deploy">
 		<echo message="deploying UNO extension package ..." />
-		<echo message="${office.home}/program/unopkg.exe add -f ${dist.dir}/${prj.name}-${version}.oxt" />
+		<echo message="${office.home}${file.separator}program${file.separator}unopkg${exeaffix} add -f ${dist.dir}/${prj.name}-${version}.oxt" />
 		<exec executable="${office.home}${file.separator}program${file.separator}unopkg${exeaffix}" dir="${office.home}${file.separator}program" failonerror="true">
 			<arg value="add" />
 			<arg value="-f" />
