@@ -1,201 +1,192 @@
 <project name="OpenCards" default="deploy" basedir=".">
 
-    <property name="src.dir" location="${basedir}/src"/>
-    <property name="bin.dir" location="${basedir}/bin"/>
-    <property name="classes.dir" location="${basedir}/classes"/>
-    <property name="lib.dir" value="${basedir}/lib"/>
-    <property name="dist.dir" value="${basedir}/dist"/>
+	<property name="src.dir" location="${basedir}/src" />
+	<property name="bin.dir" location="${basedir}/bin" />
+	<property name="classes.dir" location="${basedir}/classes" />
+	<property name="lib.dir" value="${basedir}/lib" />
+	<property name="dist.dir" value="${basedir}/dist" />
 
-    <property name="prj.name" value="OpenCards"/>
-    <property name="version" value="1.5.1"/>
-    <property name="exeaffix" value=""/>
-
-
-    <path id="classpath">
-        <fileset dir="${lib.dir}">
-            <include name="*.jar"/>
-        </fileset>
-        <fileset dir="${office.home}/Basis/program/classes">
-            <include name="officebean.jar"/>
-            <include name="unoil.jar"/>
-        </fileset>
-
-        <!-- windows/linux-->
-        <!--<fileset dir="${office.home}/URE/java/">-->
-            <!--<include name="juh.jar"/>-->
-            <!--<include name="jurt.jar"/>-->
-            <!--<include name="java_uno.jar"/>-->
-            <!--<include name="ridl.jar"/>-->
-            <!--<include name="unoloader.jar"/>-->
-        <!--</fileset>-->
-
-        <!-- mac os-->
-        <fileset dir="${office.home}/basis-link/ure-link/share/java/">
-            <include name="juh.jar"/>
-            <include name="jurt.jar"/>
-            <include name="java_uno.jar"/>
-            <include name="ridl.jar"/>
-            <include name="unoloader.jar"/>
-        </fileset>
-
-        <!-- uncomment this to restore OO 2.x build compatibility -->
-        <!--<fileset dir="${office.home}/program/classes/">-->
-        <!--<include name="juh.jar"/>-->
-        <!--<include name="jurt.jar"/>-->
-        <!--<include name="officebean.jar"/>-->
-        <!--<include name="ridl.jar"/>-->
-        <!--<include name="unoil.jar"/>-->
-        <!--</fileset>-->
-    </path>
+	<property name="prj.name" value="OpenCards" />
+	<property name="version" value="1.5.1" />
+	<property name="exeaffix" value="" />
 
 
-    <target name="compile" description="compile all sources">
-        <mkdir dir="${classes.dir}"/>
-        <javac srcdir="${src.dir}" destdir="${classes.dir}" source="1.5">
-            <classpath refid="classpath"/>
-            <compilerarg value="-g:lines,source,vars"/>
-            <!--<compilerarg value="-Xstdout"/>-->
-        </javac>
-    </target>
+	<path id="classpath">
+		<fileset dir="${lib.dir}">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${office.home}/Basis/program/classes">
+			<include name="officebean.jar" />
+			<include name="unoil.jar" />
+		</fileset>
+
+		<!-- windows/linux-->
+		<!--<fileset dir="${office.home}/URE/java/">-->
+		<!--<include name="juh.jar"/>-->
+		<!--<include name="jurt.jar"/>-->
+		<!--<include name="java_uno.jar"/>-->
+		<!--<include name="ridl.jar"/>-->
+		<!--<include name="unoloader.jar"/>-->
+		<!--</fileset>-->
+
+		<!-- mac os-->
+		<fileset dir="${office.home}/basis-link/ure-link/share/java/">
+			<include name="juh.jar" />
+			<include name="jurt.jar" />
+			<include name="java_uno.jar" />
+			<include name="ridl.jar" />
+			<include name="unoloader.jar" />
+		</fileset>
+
+		<!-- uncomment this to restore OO 2.x build compatibility -->
+		<!--<fileset dir="${office.home}/program/classes/">-->
+		<!--<include name="juh.jar"/>-->
+		<!--<include name="jurt.jar"/>-->
+		<!--<include name="officebean.jar"/>-->
+		<!--<include name="ridl.jar"/>-->
+		<!--<include name="unoil.jar"/>-->
+		<!--</fileset>-->
+	</path>
 
 
-    <target name="makejar" depends="compile" description="recreates the OpenCards.jar">
-        <mkdir dir="${dist.dir}"/>
-        <jar basedir="${classes.dir}" destfile="${dist.dir}/${prj.name}.jar">
-            <manifest>
-                <attribute name="Built-By" value="The ${prj.name} project. All rights reserverd, 2007"/>
-                <attribute name="RegistrationClassName" value="info.opencards.OpenCards"/>
-                <attribute name="Main-Class" value="info.opencards.MockSupplier"/>
-                <attribute name="Class-Path"
-                           value="jfreechart-1.0.6.jar jcommon-1.0.10.jar looks-2.1.4.jar xstream-1.3.jar xpp3_min-1.1.4c.jar"/>
-            </manifest>
-        </jar>
-
-        <!-- add the resources to the jar -->
-        <jar basedir="${basedir}" destfile="${dist.dir}/${prj.name}.jar" update="true">
-            <include name="resources${file.separator}**/*"/>
-        </jar>
-    </target>
-
-    <target name="deploy" depends="cleanall, makejar" description="deploys OpenCards to an oxt">
-        <!-- clean old distribution -->
-        <!--<delete dir="${dist.dir}" failonerror="true"/>-->
-        <!--<mkdir dir="${dist.dir}"/>-->
-
-        <!--  copy all needed jars to the deploy directory   -->
-        <!--<copy todir="${dist.dir}/lib">-->
-        <!--<fileset dir="${lib.dir}">-->
-        <!--<include name="**/*.jar"/>-->
-        <!--</fileset>-->
-        <!--</copy>-->
-
-        <property name="zipname" value="${dist.dir}/${prj.name}-${version}.oxt"/>
-
-        <zip destfile="${zipname}">
-            <zipfileset dir="${basedir}" includes="src/uno-extension-manifest.xml" fullpath="META-INF/manifest.xml"/>
-        </zip>
-
-        <zip basedir="${src.dir}" destfile="${zipname}" update="true">
-            <include name="Addons.xcu"/>
-            <include name="description.xml"/>
-            <include name="ProtocolHandler.xcu"/>
-            <include name="ImpressWindowState.xcu"/>
-        </zip>
-
-        <zip basedir="${dist.dir}" destfile="${zipname}" update="true">
-            <include name="${prj.name}.jar"/>
-        </zip>
-
-        <zip basedir="${lib.dir}" destfile="${zipname}" update="true">
-            <include name="*"/>
-            <exclude name="junit*"/>
-            <exclude name="looks*"/>
-        </zip>
-
-        <zip basedir="${basedir}" destfile="${zipname}" update="true">
-            <include name="resources/icons/globset_learning.png"/>
-            <include name="resources/icons/globset_learning_small.png"/>
-            <include name="resources/icons/5vorUhr.png"/>
-            <include name="resources/icons/5vorUhr_small.png"/>
-            <include name="resources/icons/selectQuestionShapes.png"/>
-            <include name="resources/icons/tagSelectionAsQuestion.png"/>
-            <include name="resources/icons/oclogo.png"/>
-            <include name="resources/description.txt"/>
-            <include name="license.terms"/>
-        </zip>
-    </target>
-
-    <target name="deploysources">
-        <mkdir dir="${dist.dir}"/>
-
-        <!-- zip sources and buildfile and copy them to the dist-dir  -->
-        <fileset dir="." id="allsrc">
-            <include name="src/**"/>
-        </fileset>
-
-        <zip destfile="${dist.dir}/${prj.name}-${version}-src.zip" basedir=".">
-            <include name="build.xml"/>
-            <include name="license.terms"/>
-            <include name="startOOdebug.*"/>
-
-            <!--<fileset refid="allsrc"/>-->
-            <fileset dir="." includes="lib/**"/>
-            <fileset dir="." includes="src/**"/>
-            <fileset dir="." includes="resources/**"/>
-        </zip>
-    </target>
+	<target name="compile" description="compile all sources">
+		<mkdir dir="${classes.dir}" />
+		<javac srcdir="${src.dir}" destdir="${classes.dir}" source="1.5">
+			<classpath refid="classpath" />
+			<compilerarg value="-g:lines,source,vars" />
+			<!--<compilerarg value="-Xstdout"/>-->
+		</javac>
+	</target>
 
 
-    <target name="cleanall" description="remove all generated files">
-        <delete failonerror="false" dir="${dist.dir}"/>
-        <delete file="${basedir}/${prj.name}.jar"/>
+	<target name="makejar" depends="compile" description="recreates the OpenCards.jar">
+		<mkdir dir="${dist.dir}" />
+		<jar basedir="${classes.dir}" destfile="${dist.dir}/${prj.name}.jar">
+			<manifest>
+				<attribute name="Built-By" value="The ${prj.name} project. All rights reserverd, 2007" />
+				<attribute name="RegistrationClassName" value="info.opencards.OpenCards" />
+				<attribute name="Main-Class" value="info.opencards.MockSupplier" />
+				<attribute name="Class-Path" value="jfreechart-1.0.6.jar jcommon-1.0.10.jar looks-2.1.4.jar xstream-1.3.jar xpp3_min-1.1.4c.jar" />
+			</manifest>
+		</jar>
 
-        <delete failonerror="false">
-            <fileset dir="${classes.dir}/">
-                <include name="**/*"/>
-            </fileset>
-        </delete>
+		<!-- add the resources to the jar -->
+		<jar basedir="${basedir}" destfile="${dist.dir}/${prj.name}.jar" update="true">
+			<include name="resources${file.separator}**/*" />
+		</jar>
+	</target>
 
-        <delete dir="${classes.dir}" failonerror="true"/>
-        <mkdir dir="${classes.dir}"/>
-    </target>
+	<target name="deploy" depends="cleanall, makejar" description="deploys OpenCards to an oxt">
+		<!-- clean old distribution -->
+		<!--<delete dir="${dist.dir}" failonerror="true"/>-->
+		<!--<mkdir dir="${dist.dir}"/>-->
 
-    <target name="uno-deploy" description="Deploys UNO extension package" depends="deploy">
-        <echo message="deploying UNO extension package ..."/>
-        <echo message="${office.home}/program/unopkg.exe add -f ${dist.dir}/${prj.name}-${version}.oxt"/>
-        <exec executable="${office.home}${file.separator}program${file.separator}unopkg${exeaffix}"
-              dir="${office.home}${file.separator}program" failonerror="true">
-            <arg value="add"/>
-            <arg value="-f"/>
-            <arg file="${dist.dir}/${prj.name}-${version}.oxt"/>
-        </exec>
-    </target>
+		<!--  copy all needed jars to the deploy directory   -->
+		<!--<copy todir="${dist.dir}/lib">-->
+		<!--<fileset dir="${lib.dir}">-->
+		<!--<include name="**/*.jar"/>-->
+		<!--</fileset>-->
+		<!--</copy>-->
 
-    <target name="pre-debug" depends="uno-deploy"
-            description="deploys oc and starts impress with enabled remote debugging">
-        <antcall target="startOO"/>
-    </target>
+		<property name="zipname" value="${dist.dir}/${prj.name}-${version}.oxt" />
 
-    <target name="deployStartOO" description="starts OO in a nonblocking manner with remote debugging enabled"
-            depends="uno-deploy, startOO"/>
+		<zip destfile="${zipname}">
+			<zipfileset dir="${basedir}" includes="src/uno-extension-manifest.xml" fullpath="META-INF/manifest.xml" />
+		</zip>
 
-    <target name="startOO" description="starts OO in a nonblocking manner with remote debugging enabled">
-        <property name="odpBaseName" value="hyptestingONE"/>
-        <property name="testfile"
-                  value="${bin.dir}${file.separator}testdata${file.separator}${odpBaseName}-evalcopy.odp"/>
-        <delete failonerror="true" file="${testfile}"/>
+		<zip basedir="${src.dir}" destfile="${zipname}" update="true">
+			<include name="Addons.xcu" />
+			<include name="description.xml" />
+			<include name="ProtocolHandler.xcu" />
+			<include name="ImpressWindowState.xcu" />
+		</zip>
 
-        <copy file="${bin.dir}${file.separator}testdata${file.separator}${odpBaseName}.odp"
-              tofile="${testfile}"
-              failonerror="true"/>
+		<zip basedir="${dist.dir}" destfile="${zipname}" update="true">
+			<include name="${prj.name}.jar" />
+		</zip>
 
-        <exec executable="${office.home}${file.separator}program${file.separator}simpress${exeaffix}"
-              dir="${office.home}${file.separator}program" spawn="true">
-            <env key="JAVA_TOOL_OPTIONS"
-                 value="-Xdebug -Xnoagent -esa -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000"/>
-            <env key="OOO_DISABLE_RECOVERY" value="true"/>
-            <arg file="${testfile}"/>
-        </exec>
-        <sleep seconds="5"/>
-    </target>
+		<zip basedir="${lib.dir}" destfile="${zipname}" update="true">
+			<include name="*" />
+			<exclude name="junit*" />
+			<exclude name="looks*" />
+		</zip>
+
+		<zip basedir="${basedir}" destfile="${zipname}" update="true">
+			<include name="resources/icons/globset_learning.png" />
+			<include name="resources/icons/globset_learning_small.png" />
+			<include name="resources/icons/5vorUhr.png" />
+			<include name="resources/icons/5vorUhr_small.png" />
+			<include name="resources/icons/selectQuestionShapes.png" />
+			<include name="resources/icons/tagSelectionAsQuestion.png" />
+			<include name="resources/icons/oclogo.png" />
+			<include name="resources/description.txt" />
+			<include name="license.terms" />
+		</zip>
+	</target>
+
+	<target name="deploysources">
+		<mkdir dir="${dist.dir}" />
+
+		<!-- zip sources and buildfile and copy them to the dist-dir  -->
+		<fileset dir="." id="allsrc">
+			<include name="src/**" />
+		</fileset>
+
+		<zip destfile="${dist.dir}/${prj.name}-${version}-src.zip" basedir=".">
+			<include name="build.xml" />
+			<include name="license.terms" />
+			<include name="startOOdebug.*" />
+
+			<!--<fileset refid="allsrc"/>-->
+			<fileset dir="." includes="lib/**" />
+			<fileset dir="." includes="src/**" />
+			<fileset dir="." includes="resources/**" />
+		</zip>
+	</target>
+
+
+	<target name="cleanall" description="remove all generated files">
+		<delete failonerror="false" dir="${dist.dir}" />
+		<delete file="${basedir}/${prj.name}.jar" />
+
+		<delete failonerror="false">
+			<fileset dir="${classes.dir}/">
+				<include name="**/*" />
+			</fileset>
+		</delete>
+
+		<delete dir="${classes.dir}" failonerror="true" />
+		<mkdir dir="${classes.dir}" />
+	</target>
+
+	<target name="uno-deploy" description="Deploys UNO extension package" depends="deploy">
+		<echo message="deploying UNO extension package ..." />
+		<echo message="${office.home}/program/unopkg.exe add -f ${dist.dir}/${prj.name}-${version}.oxt" />
+		<exec executable="${office.home}${file.separator}program${file.separator}unopkg${exeaffix}" dir="${office.home}${file.separator}program" failonerror="true">
+			<arg value="add" />
+			<arg value="-f" />
+			<arg file="${dist.dir}/${prj.name}-${version}.oxt" />
+		</exec>
+	</target>
+
+	<target name="pre-debug" depends="uno-deploy" description="deploys oc and starts impress with enabled remote debugging">
+		<antcall target="startOO" />
+	</target>
+
+	<target name="deployStartOO" description="starts OO in a nonblocking manner with remote debugging enabled" depends="uno-deploy, startOO" />
+
+	<target name="startOO" description="starts OO in a nonblocking manner with remote debugging enabled">
+		<property name="odpBaseName" value="hyptestingONE" />
+		<property name="testfile" value="${bin.dir}${file.separator}testdata${file.separator}${odpBaseName}-evalcopy.odp" />
+		<delete failonerror="true" file="${testfile}" />
+
+		<copy file="${bin.dir}${file.separator}testdata${file.separator}${odpBaseName}.odp" tofile="${testfile}" failonerror="true" />
+
+		<exec executable="${office.home}${file.separator}program${file.separator}simpress${exeaffix}" dir="${office.home}${file.separator}program" spawn="true">
+			<env key="JAVA_TOOL_OPTIONS" value="-Xdebug -Xnoagent -esa -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000" />
+			<env key="OOO_DISABLE_RECOVERY" value="true" />
+			<arg file="${testfile}" />
+		</exec>
+		<sleep seconds="5" />
+	</target>
 </project>
