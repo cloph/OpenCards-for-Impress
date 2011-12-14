@@ -1,3 +1,15 @@
+Upstream decided to drop the Extension approach and go with a standalone version
+that reads ppt (!) files by default - I don't like this idea, thus the fork.
+
+If you want upstream, go to http://opencards.info/ - their current code is here:
+http://code.google.com/p/opencards/source/checkout
+
+Holger's code is licenced according to the license.terms files, my modifications will
+(additionally) be under LGPLv3+/MPL
+
+Holger has no relation to this fork.
+
+################################################################################
 This files containes some hints and tricks concerning the build process and the use of the OpenCards API.
 
 
@@ -8,4 +20,4 @@ This files containes some hints and tricks concerning the build process and the 
 
 
 User profile locations:
-Mac: ~/Library/Application Support/OpenOffice3/...
+Mac: ~/Library/Application Support/OpenOffice3/...Cloned from svn@599 ( https://opencards.svn.sourceforge.net/svnroot/opencards opencards )
