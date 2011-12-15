@@ -35,7 +35,7 @@ public class UserInputCatcher implements XSlideShowListener {
     }
 
 
-    public void slideEnded() {
+    public void slideEnded(boolean b) {
     }
 
 
